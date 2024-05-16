@@ -40,41 +40,19 @@
             <input type="text" id="Football" class="form-control" value="" placeholder="Enter your Football club">
             <button class="btn btn-outline-success" id="btn" onclick="weather()" type="button" >Button</button>
         </div>
+        {% for item in results %}
+        <p>title {{itemorganic_results.title}}</p>
+        <p>link {{item.organic_results.link}}</p>
+        <p>snippet {{item.sorganic_results.snippet}}</p>
+        
+
+        {% endfor %}
      </div>
     </div>
 </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        // const yourteam = document.getElementById('Football').value;
-        // const { team } = require("serpapi");
 
-        // function team(){
-        //     console.log("Team function called!");
-       
-        // } ;
-        // q: `${yourteam}`,
-        // location: "austin, texas, united states",
-        // api_key: "6d54288946e9cf3023a4ef5a74a392b5ad6c7990bfef96a7b396e81e05407419"
-        // }, (json) => {
-        // console.log(json["sports_results"]);
-       
-        const weather = async () => {
-        const foot = document.getElementById('Football').value; // Use .value to get the input value
-        
-        const url = `https://serpapi.com/search.json?q=|${foot}&location=austin,+texas,+united+states`; // Add 'https://' to the URL
-        const response = await fetch(url);
-        
-        if (response.status==200){
-        const data = await response.json();
-        console.log(data);
-        
-        }
-    };
-
-    // Call the function when the button is clicked
-    document.getElementById("btn").addEventListener("click", weather);
-    </script>
 </body>
 </html>
