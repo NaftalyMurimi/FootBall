@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import json
+
 import serpapi
 import os
 from dotenv import load_dotenv
@@ -19,7 +19,7 @@ def index(request):
         gl = "us",
         num = "1"
     )
-    results = results.json()
+    #results = results.json()
     organic_results = results["organic_results"]
 # print(results)
     # for item in results["organic_results"]:
