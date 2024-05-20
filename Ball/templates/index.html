@@ -32,19 +32,35 @@
 </div>
 <div class="container  bg-light border border-success rounded-3">
     <div class="row">
-        <div class="col-3 rounded-3"> 
-            <img src="{% static 'ball.png'%}" class="img-fluid" alt="" srcset="">
+        <div class="align-self-center col-3 rounded-3"> 
+            <img src="{% static 'ball.png'%}" class="img-fluid d-flex justify-content-center" alt="" srcset="">
         </div>
     <div class="col-9 bg-warning rounded-3"> 
-        <div class="input-group mt-3 ">
-            <input type="text" id="Football" class="form-control" value="" placeholder="Enter your Football club">
-            <button class="btn btn-outline-success" id="btn" onclick="weather()" type="button" >Button</button>
-        </div>
-        {% for item in results %}
-        <p>title {{itemorganic_results.title}}</p>
-        <p>link {{item.organic_results.link}}</p>
-        <p>snippet {{item.sorganic_results.snippet}}</p>
+        <form action="POST">
+            <div class="input-group mt-3 mb-3">
+                <input type="text" class="form-control" placeholder="FootBall Match" >
+                <span class="input-group-text"></span>
+                <input type="text" class="form-control" placeholder="Number of search results" >
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+              </div>
+        </form>
+        {% for item in organic_results %}
         
+        <div class="card mb-3" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{item.thumbnail}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <p class="card-text">{{item.snippet}}</p>
+                  <p class="card-text"><small class="text-body-secondary">Last updated {{item.date}}</small></p>
+                  <p><a href="{{item.link}}">Read More</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
 
         {% endfor %}
      </div>
