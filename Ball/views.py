@@ -27,38 +27,37 @@ def index(request):
         if form.is_valid():
             message = form.cleaned_data['message']
             address = form.cleaned_data['address']
-    params = {
-        "engine": "google",
-        "q": "Coffee",
-        "location": "Seattle-Tacoma, WA, Washington, United States",
-        "hl": "en",
-        "gl": "us",
-        "google_domain": "google.com",
-        "num": "4",
-        "start": "1",
-        "safe": "active",
-        "api_key": api
-    }
+            # params = {
+            #     "engine": "google",
+            #     "q": "Coffee",
+            #     "location": "Seattle-Tacoma, WA, Washington, United States",
+            #     "hl": "en",
+            #     "gl": "us",
+            #     "google_domain": "google.com",
+            #     "num": "4",
+            #     "start": "1",
+            #     "safe": "active",
+            #     "api_key": api
+            # }
 
-    search = GoogleSearch(params)
-    results = search.get_dict()
-    organic_results = results["organic_results"]
-            #print(organic_results)
-            #print(results)
-            # for item in results["organic_results"]:
-            #     print(item['title'])
-            #     print(item['link'])
-            #     print(item['snippet'])
-            #     print("------------------------------------------")
+            # search = GoogleSearch(params)
+            # results = search.get_dict()
+            #organic_results = results["organic_results"]
+                    #print(organic_results)
+                    #print(results)
+                    # for item in results["organic_results"]:
+                    #     print(item['title'])
+                    #     print(item['link'])
+                    #     print(item['snippet'])
+                    #     print("------------------------------------------")
+            return render(request, 'index.html', {'message': message, 'address': address})
+            # return render(request=request,
+            #                     template_name='index.html',
+            #                     context= {"organic_results": organic_results})
+    else:
+        form = MessageForm()
+    return render(request, 'index.html', {'form': form})
 
-    return render(request=request,
-                        template_name='index.html',
-                        context= {"organic_results": organic_results})
-
-
-
-
-from .forms import MessageForm
 
 def age(request):
     if request.method == 'POST':

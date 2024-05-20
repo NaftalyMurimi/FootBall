@@ -40,14 +40,16 @@
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Search">
-            <div class="input-group mt-3 mb-3">
+            <!-- <div class="input-group mt-3 mb-3">
                 
                 <input type="text" class="form-control" placeholder="FootBall Match" >
                 <span class="input-group-text"></span>
                 <input type="text" class="form-control" placeholder="Number of search results" >
                 <input type="submit" class="btn btn-outline-secondary" type="button"Value="Search" >
-              </div>
+              </div> -->
         </form>
+        <p>hi {{message}}</p>
+        <p> hrll{{address}}</p>
         {% for item in organic_results %}
         
         <div class="card mb-3" >
