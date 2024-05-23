@@ -6,22 +6,20 @@
   <form action="post">
       {% csrf_token %}
       {{ form.as_p }}
-      <input type="submit" value="Search">
+      <input type="submit" class="btn btn-outline-secondary" value="Search">
       <!-- <div class="input-group mt-3 mb-3">
           
-          <input type="text" class="form-control" placeholder="FootBall Match" >
+          <input type="text" class="form-control" placeholder="FootBall Match" value="">
           <span class="input-group-text"></span>
           <input type="text" class="form-control" placeholder="Number of search results" >
           <input type="submit" class="btn btn-outline-secondary" type="button"Value="Search" >
         </div> -->
   </form>
-  <p>hi {{message}}</p>
-  <p> hrll{{address}}</p>
   {% for item in organic_results %}
   
   <div class="card mb-3" >
       <div class="row g-0">
-        <div class="col-md-4">
+        <div class="col-md-4 bg-info">
           <img src="{{item.thumbnail}}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">

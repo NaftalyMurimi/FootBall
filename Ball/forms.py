@@ -3,5 +3,5 @@
 from django import forms
 
 class MessageForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea, label='Message')
-    address = forms.CharField(max_length=255, label='Address')
+    message = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='Message')
+    address = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), label='Numeber of Results')
