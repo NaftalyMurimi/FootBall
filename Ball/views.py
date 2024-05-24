@@ -39,17 +39,17 @@ def index(request):
                 "safe": "active",
                 "api_key": api
             }
-
+    
             search = GoogleSearch(params)
             results = search.get_dict()
             organic_results = results["organic_results"]
-            print(organic_results)
-            print(results)
-            for item in results["organic_results"]:
-                print(item['title'])
-                print(item['link'])
-                print(item['snippet'])
-                print("------------------------------------------")
+            # print(organic_results)
+            # print(results)
+            # for item in results["organic_results"]:
+            #     print(item['title'])
+            #     print(item['link'])
+            #     print(item['snippet'])
+            #     print("------------------------------------------")
             #return render(request, 'index.html', {'message': message, 'address': address})
             return render(request=request,
                                 template_name='index.html',
